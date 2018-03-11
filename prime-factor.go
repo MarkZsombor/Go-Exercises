@@ -9,19 +9,26 @@ import (
 
 func findPrimeFactors(n int) {
 	fmt.Println(n)
+
+	// Setup an output array
+	var arr []int
 	// Remove even values
 	for n%2 == 0 {
-		fmt.Println(2)
+		arr = append(arr, 2)
 		n = n / 2
 	}
 
+	// cycle through possible odd factors
 	for i := 3; float64(i) <= math.Sqrt(float64(n)); i += 2 {
 		for n%i == 0 {
-			fmt.Println(i)
+			arr = append(arr, i)
 			n = n / i
 		}
 	}
-	fmt.Println(n)
+	if n > 2 {
+		arr = append(arr, n)
+	}
+	fmt.Println(arr)
 }
 
 func main() {
@@ -29,4 +36,6 @@ func main() {
 	findPrimeFactors(17)
 	findPrimeFactors(126)
 	findPrimeFactors(513)
+	findPrimeFactors(5000)
+	findPrimeFactors(2e18)
 }
