@@ -10,6 +10,14 @@ import (
 func findPrimeFactors(n int) {
 	fmt.Println(n)
 
+	// Account for zero
+	if n == 0 {
+		return
+	}
+	// Account for negative integers
+	if n < 0 {
+		n = int(math.Abs(float64(n)))
+	}
 	// Setup an output array
 	var arr []int
 	// Remove even values
@@ -37,5 +45,6 @@ func main() {
 	findPrimeFactors(126)
 	findPrimeFactors(513)
 	findPrimeFactors(5000)
-	findPrimeFactors(2e18)
+	findPrimeFactors(-12)
+	findPrimeFactors(0)
 }
