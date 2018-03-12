@@ -55,6 +55,8 @@ func main() {
 	fmt.Println(1, findPrimeFactors(1))
 
 	flag.Parse()
-	fmt.Println("From CLI: ", args, findPrimeFactors(args))
+	if args != 0 {
+		fmt.Println("From CLI: ", args, findPrimeFactors(args))
+	}
 
 }

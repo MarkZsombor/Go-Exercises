@@ -3,9 +3,16 @@ package main
 // Determing if a number is prime based on number of prime factors
 
 import (
+	"flag"
 	"fmt"
 	"math"
 )
+
+var args int
+
+func init() {
+	flag.IntVar(&args, "num", 0, "an int ")
+}
 
 func findPrimeFactors(n int) (l int) {
 
@@ -50,4 +57,8 @@ func main() {
 	fmt.Println("Is 18 prime?")
 	fmt.Println(isPrime(18))
 
+	flag.Parse()
+	if args != 0 {
+		fmt.Println("From CLI, is", args, "prime?", isPrime(args))
+	}
 }
