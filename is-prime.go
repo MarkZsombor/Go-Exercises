@@ -53,10 +53,10 @@ func isPrime(x int) (y bool) {
 func displayPrimeFactors(x int) {
 	n := findPrimeFactors(x)
 	if isPrime(x) || len(n) == 0 {
-		fmt.Println(x, "is a Prime Number")
+		fmt.Printf("%v is a Prime Number\n", x)
 	} else {
-		fmt.Println("The prime factors of", x, "are:")
-		fmt.Println(n)
+		fmt.Printf("The prime factors of %v are:", x)
+		fmt.Printf("%v\n", n)
 	}
 
 }
@@ -71,7 +71,7 @@ func main() {
 	displayPrimeFactors(67)
 	displayPrimeFactors(6759)
 	displayPrimeFactors(0)
-	displayPrimeFactors(17)
+	displayPrimeFactors(195128)
 	displayPrimeFactors(9511)
 	displayPrimeFactors(951)
 	displayPrimeFactors(-64)
