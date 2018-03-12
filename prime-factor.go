@@ -7,8 +7,7 @@ import (
 	"math"
 )
 
-func findPrimeFactors(n int) {
-	fmt.Println(n)
+func findPrimeFactors(n int) (arr []int) {
 
 	// Account for zero
 	if n == 0 {
@@ -18,8 +17,6 @@ func findPrimeFactors(n int) {
 	if n < 0 {
 		n = int(math.Abs(float64(n)))
 	}
-	// Setup an output array
-	var arr []int
 	// Remove even values
 	for n%2 == 0 {
 		arr = append(arr, 2)
@@ -36,15 +33,16 @@ func findPrimeFactors(n int) {
 	if n > 2 {
 		arr = append(arr, n)
 	}
-	fmt.Println(arr)
+	return arr
 }
 
 func main() {
-	findPrimeFactors(28)
-	findPrimeFactors(17)
-	findPrimeFactors(126)
-	findPrimeFactors(513)
-	findPrimeFactors(5000)
-	findPrimeFactors(-12)
-	findPrimeFactors(0)
+	fmt.Println(27, findPrimeFactors(27))
+	fmt.Println(28, findPrimeFactors(28))
+	fmt.Println(17, findPrimeFactors(17))
+	fmt.Println(127, findPrimeFactors(127))
+	fmt.Println(513, findPrimeFactors(513))
+	fmt.Println(-66, findPrimeFactors(-66))
+	fmt.Println(0, findPrimeFactors(0))
+
 }
