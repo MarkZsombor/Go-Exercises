@@ -14,7 +14,7 @@ func init() {
 	flag.IntVar(&args, "num", 0, "an int ")
 }
 
-func findPrimeFactors(n int) (l int) {
+func findPrimeFactors(n int) (a []int) {
 
 	// Account for zero
 	if n == 0 {
@@ -42,23 +42,37 @@ func findPrimeFactors(n int) (l int) {
 	if n > 2 {
 		arr = append(arr, n)
 	}
-	l = len(arr)
-	return l
+	return arr
 }
 
 func isPrime(x int) (y bool) {
 	n := findPrimeFactors(x)
-	return n == 1
+	return len(n) == 1
+}
+
+func displayPrimeFactors(x int) {
+	n := findPrimeFactors(x)
+	if isPrime(x) || len(n) == 0 {
+		fmt.Println(x, "is a Prime Number")
+	} else {
+		fmt.Println("The prime factors of", x, "are:")
+		fmt.Println(n)
+	}
+
 }
 
 func main() {
-	fmt.Println("Is 17 prime?")
-	fmt.Println(isPrime(17))
-	fmt.Println("Is 18 prime?")
-	fmt.Println(isPrime(18))
-
 	flag.Parse()
 	if args != 0 {
-		fmt.Println("From CLI, is", args, "prime?", isPrime(args))
+		displayPrimeFactors(args)
 	}
+
+	displayPrimeFactors(1)
+	displayPrimeFactors(67)
+	displayPrimeFactors(6759)
+	displayPrimeFactors(0)
+	displayPrimeFactors(17)
+	displayPrimeFactors(9511)
+	displayPrimeFactors(951)
+	displayPrimeFactors(-64)
 }
