@@ -14,7 +14,7 @@ func init() {
 	flag.IntVar(&args, "num", 0, "an int ")
 }
 
-func findPrimeFactors(n int) (a []int) {
+func findPrimeFactors(n int) (arr []int) {
 
 	// Account for zero
 	if n == 0 {
@@ -25,7 +25,7 @@ func findPrimeFactors(n int) (a []int) {
 		n = int(math.Abs(float64(n)))
 	}
 	// Setup an output array
-	var arr []int
+	// var arr []int
 	// Remove even values
 	for n%2 == 0 {
 		arr = append(arr, 2)
@@ -42,7 +42,7 @@ func findPrimeFactors(n int) (a []int) {
 	if n > 2 {
 		arr = append(arr, n)
 	}
-	return arr
+	return
 }
 
 func isPrime(x int) (y bool) {
@@ -50,15 +50,19 @@ func isPrime(x int) (y bool) {
 	return len(n) == 1
 }
 
-func displayPrimeFactors(x int) {
+func displayPrimeFactors(x int) (output string) {
 	n := findPrimeFactors(x)
 	if isPrime(x) || len(n) == 0 {
-		fmt.Printf("%v is a Prime Number\n", x)
+		output = fmt.Sprintf("%v is a Prime Number", x)
 	} else {
-		fmt.Printf("The prime factors of %v are:", x)
-		fmt.Printf("%v\n", n)
+		output = fmt.Sprintf("The prime factors of %v are: ", x)
+		for i := 0; i < len(n)-1; i++ {
+			output += fmt.Sprintf("%v, ", n[i])
+		}
+		output += fmt.Sprintf("%v.", n[len(n)-1])
 	}
-
+	fmt.Println(output)
+	return
 }
 
 func main() {
