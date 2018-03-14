@@ -1,3 +1,3 @@
-## Go mini-programs
+## Go Exercises
 
-A collections of simple programs written to learn the language Go, brought to us by our Google-overlords
+The purpose of this project is to learn the programming language Go. To that end a series of programs with modest objectives will be created.
