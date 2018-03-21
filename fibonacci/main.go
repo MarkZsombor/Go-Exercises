@@ -1,4 +1,4 @@
-// Calculate the Fibonnacci sequence
+// Calculate the Fibonacci sequence
 
 package main
 

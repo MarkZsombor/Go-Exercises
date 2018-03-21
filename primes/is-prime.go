@@ -79,4 +79,5 @@ func main() {
 	displayPrimeFactors(9511)
 	displayPrimeFactors(951)
 	displayPrimeFactors(-64)
+	displayPrimeFactors(600851475143)
 }
